@@ -1,0 +1,186 @@
+<!-- 语聊房-布局及礼物动效demo -->
+<template>
+	<view class="content">
+		<view class="bottom-info">
+			<!-- 模拟礼物列表部分 -->
+			<view class="gift">
+				<view v-for="item in gifts">
+					<animation-view class="animation" :path="item.path" :loop="item.loop" :autoplay="item.autoplay"
+						:action="item.action" :hidden="item.hidden" @bindended="lottieEnd" @click="clickGift(item)">
+					</animation-view>
+				</view>
+			</view>
+		</view>
+		<!-- 模拟礼物动效 -->
+		<view class="gift_target">
+			<animation-view class="animation_gift" :path="gift_target_path" loop="true" autoplay="true" action="stop"
+				:hidden="hidden_gift" @bindended="lottieEnd" >
+			</animation-view>
+		</view>
+
+		<!-- <button @click="playLottie" type="primary">{{status}}lottie动画</button> -->
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				//礼物图标
+				gifts: [{
+						path: './static/animation_1.json',
+						loop: true,
+						autoplay: true,
+						action: 'stop',
+						hidden: false,
+						status: '播放',
+					},
+					{
+						path: './static/animation_1.json',
+						loop: true,
+						autoplay: true,
+						action: 'stop',
+						hidden: false,
+						status: '播放',
+					},
+					{
+						path: './static/animation_1.json',
+						loop: true,
+						autoplay: true,
+						action: 'stop',
+						hidden: false,
+						status: '播放',
+					},
+					{
+						path: './static/animation_1.json',
+						loop: true,
+						autoplay: true,
+						action: 'stop',
+						hidden: false,
+						status: '播放',
+					},
+					{
+						path: './static/animation_1.json',
+						loop: true,
+						autoplay: true,
+						action: 'stop',
+						hidden: false,
+						status: '播放',
+					},
+					{
+						path: './static/animation_1.json',
+						loop: true,
+						autoplay: true,
+						action: 'stop',
+						hidden: false,
+						status: '播放',
+					},
+					{
+						path: './static/animation_1.json',
+						loop: true,
+						autoplay: true,
+						action: 'stop',
+						hidden: false,
+						status: '播放',
+					},
+					{
+						path: './static/animation_1.json',
+						loop: true,
+						autoplay: true,
+						action: 'stop',
+						hidden: false,
+						status: '播放',
+					},
+					{
+						path: './static/animation_1.json',
+						loop: true,
+						autoplay: true,
+						action: 'stop',
+						hidden: false,
+						status: '播放',
+					},
+					{
+						path: './static/animation_1.json',
+						loop: true,
+						autoplay: true,
+						action: 'stop',
+						hidden: false,
+						status: '播放',
+					},
+
+				],
+
+				gift_target_path:'',
+				//礼物大动效
+				hidden_gift: true
+			}
+		},
+		methods: {
+			playLottie() {
+				this.action = ('play' !== this.action) ? 'play' : 'pause';
+				this.status = ('pause' === this.action) ? '播放' : '暂停';
+			},
+			lottieEnd() {
+				this.status = '播放';
+				this.action = 'stop';
+				console.log('动画播放结束');
+			},
+			clickGift(item) {
+				console.log("bbzy-礼物点击事件", )
+				this.gift_target_path=item.path
+				this.hidden_gift = false
+				if (!this.hidden_gift) {
+					setTimeout(() => {
+						this.hidden_gift = true
+					}, 3000)
+				}
+			}
+		}
+	}
+</script>
+
+<style>
+	.content {
+		background-color: beige;
+		/* 占满屏幕 */
+		width: 750rpx;
+		flex: 1;
+		/* 占满屏幕--end */
+	}
+
+	.animation {
+		width: 120rpx;
+		height: 120rpx;
+		/* background-color: #FF0000; */
+		/* margin-bottom: 20px; */
+	}
+
+	.bottom-info {
+		position: absolute;
+		bottom: 0rpx;
+	}
+
+	.gift {
+		width: 750rpx;
+		display: flex;
+		flex-direction: row;
+		/* wrap:  在必要的时候进行换行*/
+		flex-wrap: wrap;
+	}
+
+	.gift_target {
+		/* 占满屏幕 */
+		width: 750rpx;
+		flex: 1;
+		/* 占满屏幕--end */
+		/* background-color: aquamarine; */
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.animation_gift {
+		width: 750rpx;
+		height: 500rpx;
+	}
+</style>
