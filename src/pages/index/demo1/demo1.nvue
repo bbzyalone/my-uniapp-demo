@@ -1,6 +1,7 @@
 <!-- 语聊房-布局及礼物动效demo -->
 <template>
 	<view class="content">
+
 		<view class="bottom-info">
 			<!-- 模拟礼物列表部分 -->
 			<view class="gift">
@@ -11,14 +12,15 @@
 				</view>
 			</view>
 		</view>
+
 		<!-- 模拟礼物动效 -->
 		<view class="gift_target">
 			<animation-view class="animation_gift" :path="gift_target_path" loop="true" autoplay="true" action="stop"
-				:hidden="hidden_gift" @bindended="lottieEnd" >
+				:hidden="hidden_gift" @bindended="lottieEnd">
 			</animation-view>
 		</view>
+		<button @click="goEasyConnect" type="primary">{{status}}lottie动画</button>
 
-		<!-- <button @click="playLottie" type="primary">{{status}}lottie动画</button> -->
 	</view>
 </template>
 
@@ -110,7 +112,7 @@
 
 				],
 
-				gift_target_path:'',
+				gift_target_path: '',
 				//礼物大动效
 				hidden_gift: true
 			}
@@ -127,13 +129,33 @@
 			},
 			clickGift(item) {
 				console.log("bbzy-礼物点击事件", )
-				this.gift_target_path=item.path
+				this.gift_target_path = item.path
 				this.hidden_gift = false
 				if (!this.hidden_gift) {
 					setTimeout(() => {
 						this.hidden_gift = true
 					}, 3000)
 				}
+			},
+			goEasyConnect() {
+				console.log("bbzy-goEasyConnect", )
+				// uni.$GoEasy.connect({
+				// 	id: "001", //用户id，必填
+				// 	data: {
+				// 		"avatar": "/www/xxx.png",
+				// 		"nickname": "Neo"
+				// 	}, //必须是一个对象，im必填，最大长度300字符，显示拨打、响铃和通话界面
+				// 	onSuccess: function() { //连接成功
+				// 		console.log("GoEasy connect successfully.") //连接成功
+				// 	},
+				// 	onFailed: function(error) { //连接失败
+				// 		console.log("Failed to connect GoEasy, code:" + error.code + ",error:" + error
+				// 		.content);
+				// 	},
+				// 	onProgress: function(attempts) { //连接或自动重连中
+				// 		console.log("GoEasy is connecting", attempts);
+				// 	}
+				// });
 			}
 		}
 	}

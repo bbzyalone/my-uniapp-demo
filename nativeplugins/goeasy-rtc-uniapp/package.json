@@ -1,0 +1,54 @@
+{
+	"name": "GoEasy音视频通话v0.2.2",
+	"id": "goeasy-rtc-uniapp",
+	"version": "0.2.2",
+	"description": "GoEasy音视频通话",
+	"_dp_type": "nativeplugin",
+	"_dp_nativeplugin": {
+		"android": {
+			"plugins": [
+				{
+					"type": "component",
+					"name": "grtc-video",
+					"class": "io.goeasy.rtc.uniapp.GRTCVideo"
+				},
+				{
+					"type": "module",
+					"name": "RTCClientPlugin",
+					"class": "io.goeasy.rtc.uniapp.RTCClientPlugin"
+				}],
+			"integrateType": "aar",
+			"compileOptions": {
+				"sourceCompatibility": "1.8",
+				"targetCompatibility": "1.8"
+			},
+			"minSdkVersion": "19",
+			"useAndroidX": true,
+			"parameters": {}
+		},
+		"ios": {
+			"plugins": [{
+				"type": "module",
+				"name": "RTCClientPlugin",
+				"class": "RTCClientPlugin"
+			}, {
+				"type": "component",
+				"name": "grtc-video",
+				"class": "GRTCVideo"
+			}],
+			"integrateType": "framework",
+			"deploymentTarget": "9.0",
+			"parameters": {
+			},
+			"frameworks": [
+				"AVKit.framework",
+				"GLKit.framework",
+				"ReplayKit.framework"
+			],
+			"privacies": [
+				"NSCameraUsageDescription",
+				"NSMicrophoneUsageDescription"
+			]
+		}
+	}
+}

@@ -46,6 +46,36 @@
             },
             /* SDK配置 */
             "sdkConfigs" : {}
+        },
+        "nativePlugins" : {
+            "goeasy-rtc-uniapp" : {
+                "__plugin_info__" : {
+                    "name" : "GoEasy音视频通话v0.2.2",
+                    "description" : "GoEasy音视频通话",
+                    "platforms" : "Android,iOS",
+                    "url" : "",
+                    "android_package_name" : "",
+                    "ios_bundle_id" : "",
+                    "isCloud" : false,
+                    "bought" : -1,
+                    "pid" : "",
+                    "parameters" : {}
+                }
+            },
+            "QNRTC-UniPlugin" : {
+                "__plugin_info__" : {
+                    "name" : "七牛云原生WebRTC插件",
+                    "description" : "集成 QNDroidRTC 与 QNRTCKit SDK  ",
+                    "platforms" : "Android,iOS",
+                    "url" : "https://ext.dcloud.net.cn/plugin?id=6857",
+                    "android_package_name" : "uni.UNI9178530",
+                    "ios_bundle_id" : "",
+                    "isCloud" : true,
+                    "bought" : 1,
+                    "pid" : "6857",
+                    "parameters" : {}
+                }
+            }
         }
     },
     /* 快应用特有相关 */
